@@ -1,0 +1,486 @@
+--------------------------------------------------------
+--  File created - sobota-czerwca-03-2017   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table KLUB
+--------------------------------------------------------
+
+  CREATE TABLE "FORMULA1"."KLUB" 
+   (	"ID_KLUBU" NUMBER, 
+	"NAZWA" VARCHAR2(100 BYTE), 
+	"ROK_ZAL" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table PRACOWNICY
+--------------------------------------------------------
+
+  CREATE TABLE "FORMULA1"."PRACOWNICY" 
+   (	"ID_PRACOWNIKA" NUMBER, 
+	"IMIE" VARCHAR2(100 BYTE), 
+	"NAZWISKO" VARCHAR2(100 BYTE), 
+	"ZAROBKI" NUMBER, 
+	"STANOWISKO" VARCHAR2(100 BYTE), 
+	"ID_KLUBU" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table WYNIKI
+--------------------------------------------------------
+
+  CREATE TABLE "FORMULA1"."WYNIKI" 
+   (	"ID_WYNIKU" NUMBER, 
+	"ID_ZAWODNIKA" NUMBER, 
+	"ID_WYSCIGU" NUMBER, 
+	"WYNIK" VARCHAR2(100 BYTE), 
+	"LICZBA_PKT" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table WYSCIG
+--------------------------------------------------------
+
+  CREATE TABLE "FORMULA1"."WYSCIG" 
+   (	"ID_WYSCIGU" NUMBER, 
+	"NAZWA_TORU" VARCHAR2(100 BYTE), 
+	"KRAJ" VARCHAR2(100 BYTE), 
+	"MIEJSCE" VARCHAR2(100 BYTE), 
+	"REKORD_TORU" VARCHAR2(100 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table ZAWODNICY
+--------------------------------------------------------
+
+  CREATE TABLE "FORMULA1"."ZAWODNICY" 
+   (	"ID_ZAWODNIKA" NUMBER, 
+	"IMIE" VARCHAR2(100 BYTE), 
+	"NAZWISKO" VARCHAR2(100 BYTE), 
+	"KRAJ" VARCHAR2(100 BYTE), 
+	"DATA_UR" VARCHAR2(100 BYTE), 
+	"ID_KLUBU" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Sequence KLUB_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FORMULA1"."KLUB_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence PRACOWNICY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FORMULA1"."PRACOWNICY_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence WYNIKI_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FORMULA1"."WYNIKI_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence WYSCIG_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FORMULA1"."WYSCIG_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence ZAWODNICY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "FORMULA1"."ZAWODNICY_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+REM INSERTING into FORMULA1.KLUB
+SET DEFINE OFF;
+Insert into FORMULA1.KLUB (ID_KLUBU,NAZWA,ROK_ZAL) values ('2','FERRARI','1932');
+Insert into FORMULA1.KLUB (ID_KLUBU,NAZWA,ROK_ZAL) values ('1','BMW','1953');
+REM INSERTING into FORMULA1.PRACOWNICY
+SET DEFINE OFF;
+Insert into FORMULA1.PRACOWNICY (ID_PRACOWNIKA,IMIE,NAZWISKO,ZAROBKI,STANOWISKO,ID_KLUBU) values ('1','Jan','Kowalski','2000','pit-stop','2');
+REM INSERTING into FORMULA1.WYNIKI
+SET DEFINE OFF;
+Insert into FORMULA1.WYNIKI (ID_WYNIKU,ID_ZAWODNIKA,ID_WYSCIGU,WYNIK,LICZBA_PKT) values ('1','1','1','1','600');
+REM INSERTING into FORMULA1.WYSCIG
+SET DEFINE OFF;
+Insert into FORMULA1.WYSCIG (ID_WYSCIGU,NAZWA_TORU,KRAJ,MIEJSCE,REKORD_TORU) values ('1','Resovia','Polska','Rzeszów - Baranówka','3.55min');
+REM INSERTING into FORMULA1.ZAWODNICY
+SET DEFINE OFF;
+Insert into FORMULA1.ZAWODNICY (ID_ZAWODNIKA,IMIE,NAZWISKO,KRAJ,DATA_UR,ID_KLUBU) values ('1','Robert','Kubica','Polska','23.04.1985','1');
+--------------------------------------------------------
+--  DDL for Index KLUB_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FORMULA1"."KLUB_PK" ON "FORMULA1"."KLUB" ("ID_KLUBU") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index WYSCIG_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FORMULA1"."WYSCIG_PK" ON "FORMULA1"."WYSCIG" ("ID_WYSCIGU") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index PRACOWNICY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FORMULA1"."PRACOWNICY_PK" ON "FORMULA1"."PRACOWNICY" ("ID_PRACOWNIKA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index ZAWODNICY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FORMULA1"."ZAWODNICY_PK" ON "FORMULA1"."ZAWODNICY" ("ID_ZAWODNIKA") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index WYNIKI_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "FORMULA1"."WYNIKI_PK" ON "FORMULA1"."WYNIKI" ("ID_WYNIKU") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger KLUB_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "FORMULA1"."KLUB_TRI" 
+   before insert on "FORMULA1"."KLUB" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_KLUBU" is null then 
+         select KLUB_SEQ.nextval into :NEW."ID_KLUBU" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "FORMULA1"."KLUB_TRI" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger PRACOWNICY_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "FORMULA1"."PRACOWNICY_TRI" 
+   before insert on "FORMULA1"."PRACOWNICY" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_PRACOWNIKA" is null then 
+         select PRACOWNICY_SEQ.nextval into :NEW."ID_PRACOWNIKA" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "FORMULA1"."PRACOWNICY_TRI" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger WYNIKI_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "FORMULA1"."WYNIKI_TRI" 
+   before insert on "FORMULA1"."WYNIKI" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_WYNIKU" is null then 
+         select WYNIKI_SEQ.nextval into :NEW."ID_WYNIKU" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "FORMULA1"."WYNIKI_TRI" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger WYSCIG_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "FORMULA1"."WYSCIG_TRI" 
+   before insert on "FORMULA1"."WYSCIG" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_WYSCIGU" is null then 
+         select WYSCIG_SEQ.nextval into :NEW."ID_WYSCIGU" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "FORMULA1"."WYSCIG_TRI" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ZAWODNICY_TRI
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "FORMULA1"."ZAWODNICY_TRI" 
+   before insert on "FORMULA1"."ZAWODNICY" 
+   for each row 
+begin  
+   if inserting then 
+      if :NEW."ID_ZAWODNIKA" is null then 
+         select ZAWODNICY_SEQ.nextval into :NEW."ID_ZAWODNIKA" from dual; 
+      end if; 
+   end if; 
+end;
+
+/
+ALTER TRIGGER "FORMULA1"."ZAWODNICY_TRI" ENABLE;
+--------------------------------------------------------
+--  DDL for Procedure ZAPISZ_KLUB
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "FORMULA1"."ZAPISZ_KLUB" 
+(
+	   NAZWA IN KLUB.NAZWA%TYPE,
+     ROK_ZAL IN KLUB.ROK_ZAL%TYPE
+)
+  AS
+begin 
+insert into KLUB("NAZWA","ROK_ZAL")
+values (NAZWA,ROK_ZAL);
+
+commit;
+end zapisz_klub;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ZAPISZ_PRACOWNIK
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "FORMULA1"."ZAPISZ_PRACOWNIK" 
+(
+	   IMIE IN PRACOWNICY.IMIE%TYPE,
+     NAZWISKO IN PRACOWNICY.NAZWISKO%TYPE,
+     ZAROBKI IN PRACOWNICY.ZAROBKI%TYPE,
+     STANOWISKO IN PRACOWNICY.STANOWISKO%TYPE,
+     ID_KLUBU IN PRACOWNICY.ID_KLUBU%TYPE
+)
+  AS
+begin 
+insert into PRACOWNICY("IMIE","NAZWISKO","ZAROBKI","STANOWISKO","ID_KLUBU")
+values (IMIE,NAZWISKO,ZAROBKI,STANOWISKO,ID_KLUBU);
+
+commit;
+end zapisz_pracownik;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ZAPISZ_WYNIK
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "FORMULA1"."ZAPISZ_WYNIK" 
+(
+	   ID_ZAWODNIKA IN WYNIKI.ID_ZAWODNIKA%TYPE,
+     ID_WYSCIGU IN WYNIKI.ID_WYSCIGU%TYPE,
+     WYNIK IN WYNIKI.WYNIK%TYPE,
+     LICZBA_PKT IN WYNIKI.LICZBA_PKT%TYPE
+)
+  AS
+begin 
+insert into WYNIKI("ID_ZAWODNIKA","ID_WYSCIGU","WYNIK","LICZBA_PKT")
+values (ID_ZAWODNIKA,ID_WYSCIGU,WYNIK,LICZBA_PKT);
+
+commit;
+end zapisz_wynik;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ZAPISZ_WYSCIG
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "FORMULA1"."ZAPISZ_WYSCIG" 
+(
+	   NAZWA_TORU IN WYSCIG.NAZWA_TORU%TYPE,
+     KRAJ IN WYSCIG.KRAJ%TYPE,
+     MIEJSCE IN WYSCIG.MIEJSCE%TYPE,
+     REKORD_TORU IN WYSCIG.REKORD_TORU%TYPE
+)
+  AS
+begin 
+insert into WYSCIG("NAZWA_TORU","KRAJ","MIEJSCE","REKORD_TORU")
+values (NAZWA_TORU,KRAJ,MIEJSCE,REKORD_TORU);
+
+commit;
+end zapisz_wyscig;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ZAPISZ_ZAWODNIK
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE PROCEDURE "FORMULA1"."ZAPISZ_ZAWODNIK" 
+(
+	   IMIE IN ZAWODNICY.IMIE%TYPE,
+     NAZWISKO IN ZAWODNICY.NAZWISKO%TYPE,
+     KRAJ IN ZAWODNICY.KRAJ%TYPE,
+     DATA_UR IN ZAWODNICY.DATA_UR%TYPE,
+     ID_KLUBU IN ZAWODNICY.ID_KLUBU%TYPE
+)
+  AS
+begin 
+insert into ZAWODNICY("IMIE","NAZWISKO","KRAJ","DATA_UR","ID_KLUBU")
+values (IMIE,NAZWISKO,KRAJ,DATA_UR,ID_KLUBU);
+
+commit;
+end zapisz_zawodnik;
+
+/
+--------------------------------------------------------
+--  DDL for Function LICZ_KLUB
+--------------------------------------------------------
+
+  CREATE OR REPLACE FUNCTION "FORMULA1"."LICZ_KLUB" 
+RETURN NUMBER 
+IS
+ile NUMBER;
+BEGIN
+SELECT COUNT(*) INTO ile FROM KLUB;
+RETURN ILE;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function LICZ_PRAC
+--------------------------------------------------------
+
+  CREATE OR REPLACE FUNCTION "FORMULA1"."LICZ_PRAC" 
+RETURN NUMBER 
+IS
+ile NUMBER;
+BEGIN
+SELECT COUNT(*) INTO ile FROM PRACOWNICY;
+RETURN ILE;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function LICZ_ZAW
+--------------------------------------------------------
+
+  CREATE OR REPLACE FUNCTION "FORMULA1"."LICZ_ZAW" 
+RETURN NUMBER 
+IS
+ile NUMBER;
+BEGIN
+SELECT COUNT(*) INTO ile FROM ZAWODNICY;
+RETURN ILE;
+end;
+
+/
+--------------------------------------------------------
+--  Constraints for Table PRACOWNICY
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."PRACOWNICY" ADD CONSTRAINT "PRACOWNICY_PK" PRIMARY KEY ("ID_PRACOWNIKA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("ID_KLUBU" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("STANOWISKO" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("ZAROBKI" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("NAZWISKO" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("IMIE" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."PRACOWNICY" MODIFY ("ID_PRACOWNIKA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table ZAWODNICY
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."ZAWODNICY" ADD CONSTRAINT "ZAWODNICY_PK" PRIMARY KEY ("ID_ZAWODNIKA")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("ID_KLUBU" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("DATA_UR" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("KRAJ" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("NAZWISKO" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("IMIE" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."ZAWODNICY" MODIFY ("ID_ZAWODNIKA" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table WYSCIG
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."WYSCIG" ADD CONSTRAINT "WYSCIG_PK" PRIMARY KEY ("ID_WYSCIGU")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "FORMULA1"."WYSCIG" MODIFY ("REKORD_TORU" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYSCIG" MODIFY ("MIEJSCE" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYSCIG" MODIFY ("KRAJ" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYSCIG" MODIFY ("NAZWA_TORU" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYSCIG" MODIFY ("ID_WYSCIGU" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table WYNIKI
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."WYNIKI" ADD CONSTRAINT "WYNIKI_PK" PRIMARY KEY ("ID_WYNIKU")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "FORMULA1"."WYNIKI" MODIFY ("LICZBA_PKT" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYNIKI" MODIFY ("WYNIK" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYNIKI" MODIFY ("ID_WYSCIGU" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYNIKI" MODIFY ("ID_ZAWODNIKA" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."WYNIKI" MODIFY ("ID_WYNIKU" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table KLUB
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."KLUB" ADD CONSTRAINT "KLUB_PK" PRIMARY KEY ("ID_KLUBU")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "FORMULA1"."KLUB" MODIFY ("ROK_ZAL" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."KLUB" MODIFY ("NAZWA" NOT NULL ENABLE);
+  ALTER TABLE "FORMULA1"."KLUB" MODIFY ("ID_KLUBU" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table PRACOWNICY
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."PRACOWNICY" ADD CONSTRAINT "PRACOWNICY_KLUB" FOREIGN KEY ("ID_KLUBU")
+	  REFERENCES "FORMULA1"."KLUB" ("ID_KLUBU") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table WYNIKI
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."WYNIKI" ADD CONSTRAINT "WYNIKI_WYSCIG" FOREIGN KEY ("ID_WYSCIGU")
+	  REFERENCES "FORMULA1"."WYSCIG" ("ID_WYSCIGU") ENABLE;
+  ALTER TABLE "FORMULA1"."WYNIKI" ADD CONSTRAINT "WYNIK_ZAWODNICY" FOREIGN KEY ("ID_ZAWODNIKA")
+	  REFERENCES "FORMULA1"."ZAWODNICY" ("ID_ZAWODNIKA") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table ZAWODNICY
+--------------------------------------------------------
+
+  ALTER TABLE "FORMULA1"."ZAWODNICY" ADD CONSTRAINT "ZAWODNICY_KLUB" FOREIGN KEY ("ID_KLUBU")
+	  REFERENCES "FORMULA1"."KLUB" ("ID_KLUBU") ENABLE;
